@@ -1,0 +1,14 @@
+services:
+  protect2mqtt:
+    build: .
+    restart: unless-stopped
+    environment:
+      PROTECT_HOST: 192.168.1.1        # your UniFi console (UDM, UNVR, Cloud Key)
+      PROTECT_USERNAME: protect2mqtt   # a local user with a view-only Protect role
+      PROTECT_PASSWORD: change-me
+      PROTECT_INTERVAL: 15             # seconds between reads
+      PROTECT_HA_DISCOVERY: 1          # publish Home Assistant discovery (read-only sensors)
+      MQTT_HOST: mqtt.local
+      MQTT_PORT: 1883
+      MQTT_USERNAME: protect2mqtt
+      MQTT_PASSWORD: change-me
